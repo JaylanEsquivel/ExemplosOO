@@ -5,14 +5,18 @@ using System.Threading.Tasks;
 
 namespace ProjetoFinal.Models
 {
-    public class ContaCorrente
+    public class Corrente : Conta
     {
-        public ContaCorrente(int numeroconta, decimal saldo) {
+        public Corrente(int numeroconta, decimal saldo) {
             NumeroConta = numeroconta;
             Saldo = saldo;
         }
         public int NumeroConta { get; set; }
-        private decimal Saldo { get; set; }
+
+        public override void Creditar(decimal valor)
+        {
+            Saldo += valor;
+        }
 
         public void Sacar(decimal valor) {
             if (valor <= Saldo) { 
@@ -22,9 +26,7 @@ namespace ProjetoFinal.Models
                 Console.WriteLine("Valor Desejado é maior que limite disponível");
             }
         }
-        public void ExibirSaldo() {
-            Console.WriteLine($"Seu saldo é de: R$ {Saldo}");
-        }
+        
 
 
     }

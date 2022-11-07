@@ -7,6 +7,14 @@ namespace ProjetoFinal.Models
 {
     public class Aluno : Pessoa
     {
+        public Aluno(string nome) : base(nome) { 
+
+        }
         public decimal Nota { get; set; }
+
+        public override void Apresentar() //CONCEITO DE POLIMOFISMO
+        {
+            Console.WriteLine($"Olá meu nome é: {Nome} tenho {Idade} e Sou um Aluno nota {Nota} ");
+        }
     }
 }
